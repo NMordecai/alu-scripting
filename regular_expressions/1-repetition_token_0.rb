@@ -1,3 +1,13 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env ruby  
 
-puts ARGV[0].scan(/hbt+n/).join
+# Get the argument passed to the script  
+input_string = ARGV[0]  
+
+# Regular expression based on the pattern analysis  
+pattern = /^hbt+n$/  
+
+if input_string =~ pattern  
+  puts "Match"  
+else  
+  puts "No match"  
+end
