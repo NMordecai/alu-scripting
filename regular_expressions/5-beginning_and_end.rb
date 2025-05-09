@@ -1,15 +1,6 @@
 #!/usr/bin/env ruby
 
-if ARGV.length != 1
-  puts "Usage: #{$PROGRAM_NAME} <string>"
-  exit 1
-end
+# This script matches strings that start with 'h', followed by 'b',
+# then one or more 't's, and ending with 'n'.
+puts ARGV[0].scan(/hbt+n/).join
 
-input_string = ARGV[0]
-regex = /h.n/
-
-if input_string.match(regex)
-  puts "Match found!"
-else
-  puts "No match found."
-end
