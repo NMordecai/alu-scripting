@@ -1,6 +1,2 @@
 #!/usr/bin/env ruby
-
-# This script matches strings that start with 'h', followed by 'b',
-# then one or more 't's, and ending with 'n'.
-puts ARGV[0].scan(/hbt+n/).join
-
+puts ARGV[0].scan(/^h[a-zA-Z0-9]n$/).join
