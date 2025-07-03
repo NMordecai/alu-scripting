@@ -22,12 +22,9 @@ def count_words(subreddit, word_list, after="", hot_list=[]):
         json_data = response.json()
         if (json_data.get('data').get('dist') == 0):
             return
-       
         for child in json_data.get('data').get('children'):
             title = child.get('data').get('title')
             hot_list.append(title)
-
-    
         after = json_data.get('data').get('after')
         if after is not None:
             # print("got next page")
@@ -43,7 +40,6 @@ def count_words(subreddit, word_list, after="", hot_list=[]):
                     counter[word] = 0
                 else:
                     counter[word] += 1
-           
             for title in hot_list:
                 title_list = title.lower().split(' ')
                 for word in counter.keys():
@@ -57,13 +53,9 @@ def count_words(subreddit, word_list, after="", hot_list=[]):
                 if value > 0:
                     print("{}: {}".format(key, value))
             # print(hot_list)
-
     else:
         return
-
-
 if __name__ == '__main__':
     count_words("hello", ['REDDIT', 'german', 'HI', 'whynot'])
     count_words('unpopular', ['down', 'vote', 'downvote',
                               'you', 'her', 'unpopular', 'politics'])
-   
